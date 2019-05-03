@@ -25,8 +25,12 @@ output_ip(const T value)
   }
 }
 
-
-void output_ip(const std::string &str)
+/** @brief IP in string form..
+ *  @tparam T - 'std::string' type.
+ *  @param str[in] - the ip-address value is represented as 'std::string'. */
+template <typename T>
+typename std::enable_if<std::is_same<std::string, T>::value, void>::type
+output_ip(const T &str)
 {
   std::cout << str;
 }
