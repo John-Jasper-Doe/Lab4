@@ -8,7 +8,6 @@
 #include <vector>
 
 
-
 template<typename T>
 typename std::enable_if<std::is_integral<T>::value, void>::type
 output_ip(const T value)
@@ -27,10 +26,11 @@ output_ip(const T value)
 }
 
 
-void output_ip(const std::string &s)
+void output_ip(const std::string &str)
 {
-  std::cout << s;
+  std::cout << str;
 }
+
 
 template<typename T>
 typename std::enable_if<
