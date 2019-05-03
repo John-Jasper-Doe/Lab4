@@ -4,6 +4,8 @@
 #include <type_traits>
 #include <iostream>
 #include <utility>
+#include <list>
+#include <vector>
 
 
 
@@ -11,6 +13,7 @@ template<typename T>
 typename std::enable_if<std::is_integral<T>::value, void>::type
 output_ip(const T value)
 {
+  using unsigned_t = typename std::make_unsigned<T>::type;
   const size_t num_bytes = sizeof(T);
 
   for (size_t i = 0; i < num_bytes; ++i) {
@@ -18,16 +21,35 @@ output_ip(const T value)
       std::cout << '.';
 
     unsigned offset = ((num_bytes - 1) - i) * 8;
-    unsigned long o = (value & (static_cast<T>(0xFF) << offset)) >> offset;
-    std::cout << o;
+    std::cout << ((value & (static_cast<unsigned_t>(0xFF) << offset))
+                  >> offset);
   }
+}
 
-  std::cout << "" << std::endl;
+
+void output_ip(const std::string &s)
+{
+  std::cout << s;
+}
+
+template<typename T>
+typename std::enable_if<
+  std::is_same<std::vector<typename T::value_type>, T>::value ||
+  std::is_same<std::list<typename T::value_type>, T>::value, void>::type
+output_ip(const T &container)
+{
+  for (auto it = container.begin(); it != container.end(); ++it) {
+    if (it != container.begin())
+      std::cout << '.';
+
+    output_ip(*it);
+  }
 }
 
 
 template<typename T>
-void print_ip(T &&value) {
+void print_ip(T &&value)
+{
   output_ip(std::forward<T>(value));
 }
 
