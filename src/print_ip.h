@@ -8,6 +8,9 @@
 #include <vector>
 
 
+/** @brief IP in integral form.
+ *  @tparam T - integral type.
+ *  @param value[in] - ip-address value presented in the integral form. */
 template<typename T>
 typename std::enable_if<std::is_integral<T>::value, void>::type
 output_ip(const T value)
@@ -25,7 +28,7 @@ output_ip(const T value)
   }
 }
 
-/** @brief IP in string form..
+/** @brief IP in string form.
  *  @tparam T - 'std::string' type.
  *  @param str[in] - the ip-address value is represented as 'std::string'. */
 template <typename T>
@@ -35,7 +38,9 @@ output_ip(const T &str)
   std::cout << str;
 }
 
-
+/** @brief IP in container view.
+ *  @tparam T - container type (vector/list).
+ *  @param container[in] - ip-address value represented as a container. */
 template<typename T>
 typename std::enable_if<
   std::is_same<std::vector<typename T::value_type>, T>::value ||
@@ -50,7 +55,9 @@ output_ip(const T &container)
   }
 }
 
-
+/** @brief Print argument as ip address.
+ *  @tparam T - integral type or container or string types.
+ *  @param value[in] - value that will be printed as ip-address. */
 template<typename T>
 void print_ip(T &&value)
 {
