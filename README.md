@@ -4,3 +4,5 @@
 
 ## Otus Developer C++ Course
 Homework "Print IP"
+
+Manual: https://john-jasper-doe.github.io/Lab4/index.html
