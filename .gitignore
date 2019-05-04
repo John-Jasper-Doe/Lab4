@@ -59,6 +59,7 @@ docs/reference*
 docs/*.html
 docs/*.png
 docs/*-ref.rst
+docs/
 
 .DS_Store
 .idea
