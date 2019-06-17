@@ -31,9 +31,9 @@ int main()
   print_ip(std::string{"192.168.200.10"});
   std::cout << "" << std::endl;
 
-  /* void output_ip(const T &str) */
-//  print_ip("192.168.200.11");
-//  std::cout << "" << std::endl;
+  /* void output_ip(const std::string &str) */
+  print_ip(static_cast<const std::string>("192.168.200.11"));
+  std::cout << "" << std::endl;
 
   print_ip(std::vector<char>{char(192), char(168), char(0), char(1)});
   std::cout << "" << std::endl;

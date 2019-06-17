@@ -45,6 +45,9 @@ struct is_string : std::false_type {};
 template <>
 struct is_string<std::string> : std::true_type {};
 
+template <>
+struct is_string<const std::string> : std::true_type {};
+
 /** @brief IP in string form.
  *  @tparam T - 'std::string' type.
  *  @param str[in] - the ip-address value is represented as 'std::string'. */
