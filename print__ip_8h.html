@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -84,6 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">print_ip.h File Reference</div>  </div>
@@ -106,33 +108,42 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="print__ip_8h__dep__incl.png" border="0" usemap="#src_2print__ip_8hdep" alt=""/></div>
 <map name="src_2print__ip_8hdep" id="src_2print__ip_8hdep">
-<area shape="rect" id="node2" href="main_8cpp.html" title="src/main.cpp" alt="" coords="5,80,109,107"/>
+<area shape="rect" id="node2" href="main_8cpp.html" title="The main project file is &quot;Print IP&quot;. " alt="" coords="5,80,109,107"/>
 </map>
 </div>
 </div>
 <p><a href="print__ip_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structis__string.html">is_string&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structis__string_3_01const_01std_1_1string_01_4.html">is_string&lt; const std::string &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structis__string_3_01std_1_1string_01_4.html">is_string&lt; std::string &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a020cb9afb2480bbafd44b48b26c41160"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a020cb9afb2480bbafd44b48b26c41160"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_integral&lt; T &gt;::value, void &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="print__ip_8h.html#a020cb9afb2480bbafd44b48b26c41160">output_ip</a> (const T value)</td></tr>
-<tr class="memdesc:a020cb9afb2480bbafd44b48b26c41160"><td class="mdescLeft">&#160;</td><td class="mdescRight">IP in integral form.  <a href="#a020cb9afb2480bbafd44b48b26c41160">More...</a><br /></td></tr>
-<tr class="separator:a020cb9afb2480bbafd44b48b26c41160"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a278936f8ebce43b65b710958954f47ba"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a278936f8ebce43b65b710958954f47ba"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_same&lt; std::string, T &gt;::value, void &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="print__ip_8h.html#a278936f8ebce43b65b710958954f47ba">output_ip</a> (const T &amp;str)</td></tr>
-<tr class="memdesc:a278936f8ebce43b65b710958954f47ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">IP in string form.  <a href="#a278936f8ebce43b65b710958954f47ba">More...</a><br /></td></tr>
-<tr class="separator:a278936f8ebce43b65b710958954f47ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a055e9aeccf575213b7d99f6ab6d1c5de"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a055e9aeccf575213b7d99f6ab6d1c5de"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_same&lt; std::vector&lt; typename T::value_type &gt;, T &gt;::value||std::is_same&lt; std::list&lt; typename T::value_type &gt;, T &gt;::value, void &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="print__ip_8h.html#a055e9aeccf575213b7d99f6ab6d1c5de">output_ip</a> (const T &amp;container)</td></tr>
-<tr class="memdesc:a055e9aeccf575213b7d99f6ab6d1c5de"><td class="mdescLeft">&#160;</td><td class="mdescRight">IP in container view.  <a href="#a055e9aeccf575213b7d99f6ab6d1c5de">More...</a><br /></td></tr>
-<tr class="separator:a055e9aeccf575213b7d99f6ab6d1c5de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf68290f5289596f48c98ae5cb9755b3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aaf68290f5289596f48c98ae5cb9755b3"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_integral&lt; T &gt;::value, void &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="print__ip_8h.html#aaf68290f5289596f48c98ae5cb9755b3">output_ip</a> (T &amp;&amp;value)</td></tr>
+<tr class="memdesc:aaf68290f5289596f48c98ae5cb9755b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">IP in integral form.  <a href="#aaf68290f5289596f48c98ae5cb9755b3">More...</a><br /></td></tr>
+<tr class="separator:aaf68290f5289596f48c98ae5cb9755b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a498294f3f52ee826d5ffeebc53bad759"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a498294f3f52ee826d5ffeebc53bad759"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="structis__string.html">is_string</a>&lt; T &gt;::value, void &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="print__ip_8h.html#a498294f3f52ee826d5ffeebc53bad759">output_ip</a> (T &amp;&amp;str)</td></tr>
+<tr class="memdesc:a498294f3f52ee826d5ffeebc53bad759"><td class="mdescLeft">&#160;</td><td class="mdescRight">IP in string form.  <a href="#a498294f3f52ee826d5ffeebc53bad759">More...</a><br /></td></tr>
+<tr class="separator:a498294f3f52ee826d5ffeebc53bad759"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97448dbfcea237eebfca7b28c8a444a8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a97448dbfcea237eebfca7b28c8a444a8"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_same&lt; std::vector&lt; typename T::value_type &gt;, T &gt;::value||std::is_same&lt; std::list&lt; typename T::value_type &gt;, T &gt;::value, void &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="print__ip_8h.html#a97448dbfcea237eebfca7b28c8a444a8">output_ip</a> (T &amp;&amp;container)</td></tr>
+<tr class="memdesc:a97448dbfcea237eebfca7b28c8a444a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">IP in container view.  <a href="#a97448dbfcea237eebfca7b28c8a444a8">More...</a><br /></td></tr>
+<tr class="separator:a97448dbfcea237eebfca7b28c8a444a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a332e50bfba8fcfb19f8d9c91ce5eb744"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a332e50bfba8fcfb19f8d9c91ce5eb744"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="print__ip_8h.html#a332e50bfba8fcfb19f8d9c91ce5eb744">print_ip</a> (T &amp;&amp;value)</td></tr>
 <tr class="memdesc:a332e50bfba8fcfb19f8d9c91ce5eb744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print argument as ip address.  <a href="#a332e50bfba8fcfb19f8d9c91ce5eb744">More...</a><br /></td></tr>
 <tr class="separator:a332e50bfba8fcfb19f8d9c91ce5eb744"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a020cb9afb2480bbafd44b48b26c41160"></a>
+<a class="anchor" id="aaf68290f5289596f48c98ae5cb9755b3"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -141,7 +152,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">std::enable_if&lt;std::is_integral&lt;T&gt;::value, void&gt;::type output_ip </td>
           <td>(</td>
-          <td class="paramtype">const T&#160;</td>
+          <td class="paramtype">T &amp;&amp;&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
           <td></td>
         </tr>
@@ -164,16 +175,16 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a278936f8ebce43b65b710958954f47ba"></a>
+<a class="anchor" id="a498294f3f52ee826d5ffeebc53bad759"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::enable_if&lt;std::is_same&lt;std::string, T&gt;::value, void&gt;::type output_ip </td>
+          <td class="memname">std::enable_if&lt;<a class="el" href="structis__string.html">is_string</a>&lt;T&gt;::value, void&gt;::type output_ip </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramtype">T &amp;&amp;&#160;</td>
           <td class="paramname"><em>str</em></td><td>)</td>
           <td></td>
         </tr>
@@ -196,7 +207,7 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a055e9aeccf575213b7d99f6ab6d1c5de"></a>
+<a class="anchor" id="a97448dbfcea237eebfca7b28c8a444a8"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -205,7 +216,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">std::enable_if&lt; std::is_same&lt;std::vector&lt;typename T::value_type&gt;, T&gt;::value || std::is_same&lt;std::list&lt;typename T::value_type&gt;, T&gt;::value, void&gt;::type output_ip </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramtype">T &amp;&amp;&#160;</td>
           <td class="paramname"><em>container</em></td><td>)</td>
           <td></td>
         </tr>
