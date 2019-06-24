@@ -39,21 +39,28 @@ output_ip(T &&value)
   }
 }
 
-template <typename T>
-struct is_string : std::false_type {};
+//template <typename T>
+//struct is_string : std::false_type {};
 
-template <>
-struct is_string<std::string> : std::true_type {};
+//template <>
+//struct is_string<std::string> : std::true_type {};
 
-template <>
-struct is_string<const std::string> : std::true_type {};
+//template <>
+//struct is_string<const std::string> : std::true_type {};
+
+///** @brief IP in string form.
+// *  @tparam T - 'std::string' type.
+// *  @param str[in] - the ip-address value is represented as 'std::string'. */
+//template <typename T>
+//typename std::enable_if<is_string<T>::value, void>::type
+///*void*/ output_ip(T &&str)
+//{
+//  std::cout << str;
+//}
 
 /** @brief IP in string form.
- *  @tparam T - 'std::string' type.
  *  @param str[in] - the ip-address value is represented as 'std::string'. */
-template <typename T>
-typename std::enable_if<is_string<T>::value, void>::type
-/*void*/ output_ip(T &&str)
+void output_ip(const std::string &&str)
 {
   std::cout << str;
 }
