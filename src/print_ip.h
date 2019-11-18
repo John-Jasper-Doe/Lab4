@@ -1,9 +1,9 @@
 /**
  ******************************************************************************
- * @file    print_ip.cpp
+ * @file    print_ip.h
  * @author  Maxim <aveter@bk.ru>
- * @date    04/05/2019
- * @brief
+ * @date    18/11/2019
+ * @brief   Template functions for printed
  ******************************************************************************
  */
 
@@ -17,79 +17,99 @@
 #include <utility>
 #include <list>
 #include <vector>
+#include <algorithm>
+#include <tuple>
 
 
-/** @brief IP in integral form.
- *  @tparam T - integral type.
- *  @param value[in] - ip-address value presented in the integral form. */
+using namespace std::literals;
+
+
+/**
+ * @brief   Is not tuple type
+ * @tparam  T - input type
+ *
+ * @details For any types other than "typle"
+ */
 template<typename T>
-typename std::enable_if<std::is_integral<T>::value, void>::type
-output_ip(T &&value)
-{
-  using unsigned_t = typename std::make_unsigned<T>::type;
-  const size_t num_bytes = sizeof(T);
+struct is_tuple : std::false_type {};
 
-  for (size_t i = 0; i < num_bytes; ++i) {
-    if (i != 0)
-      std::cout << '.';
 
-    unsigned offset = ((num_bytes - 1) - i) * 8;
-    std::cout << ((value & (static_cast<unsigned_t>(0xFF) << offset))
-                  >> offset);
+/**
+ * @brief   Is tuple type
+ * @tparam  T - input type
+ *
+ * @details This variadic templates for tuple.
+ */
+template<typename... T>
+struct is_tuple<std::tuple<T...>> : std::true_type {};
+
+
+/**
+ * @brief   Is const tuple type
+ * @tparam  T - input type
+ *
+ * @details This variadic templates for const tuple.
+ */
+template<typename... T>
+struct is_tuple<const std::tuple<T...>> : std::true_type {};
+
+
+/**
+ * @brief   Print tuple
+ * @tparam  TUPLE_TYPE - type of tuple
+ * @tparam  SIZE - the number of parameters in the tuple
+ *
+ * @details A common template for outputting a tuple to the console.
+ */
+template<class TUPLE_TYPE, size_t... SIZE>
+void print_tuple(const TUPLE_TYPE &value, std::index_sequence<SIZE...>) {
+  (..., (std::cout << (SIZE == 0 ? "" : ".") << std::get<SIZE>(value)));
+}
+
+/**
+ * @brief   Print tuple
+ * @tparam  TUPLE_TYPE - type of tuple
+ *
+ * @details Initial function to enter template recursion.
+ */
+template<class... T>
+void print_tuple(const std::tuple<T...>& value) {
+  print_tuple(value, std::make_index_sequence<sizeof...(T)>());
+}
+
+
+/**
+ * @brief   Output IP addres
+ * @tparam  T - type of input
+ * @param   [in] value - input data
+ *
+ * @details Template function for displaying heterogeneous values. The template
+ *          is generated depending on the input data.
+ */
+template<typename T>
+auto output_ip(T &&value) {
+  if constexpr (std::is_integral_v<T>) { /* such as the char, short, int and etc ... */
+    using unsigned_t = typename std::make_unsigned<T>::type;
+    const size_t num_bytes = sizeof(T);
+
+    for (size_t i = 0; i < num_bytes; ++i) {
+      unsigned offset = ((num_bytes - 1) - i) * 8;
+      std::cout << (i != 0 ? "."s : ""s) << ((value & (static_cast<unsigned_t>(0xFF) << offset)) >> offset);
+    }
   }
-}
-
-//template <typename T>
-//struct is_string : std::false_type {};
-
-//template <>
-//struct is_string<std::string> : std::true_type {};
-
-//template <>
-//struct is_string<const std::string> : std::true_type {};
-
-///** @brief IP in string form.
-// *  @tparam T - 'std::string' type.
-// *  @param str[in] - the ip-address value is represented as 'std::string'. */
-//template <typename T>
-//typename std::enable_if<is_string<T>::value, void>::type
-///*void*/ output_ip(T &&str)
-//{
-//  std::cout << str;
-//}
-
-/** @brief IP in string form.
- *  @param str[in] - the ip-address value is represented as 'std::string'. */
-void output_ip(const std::string &&str)
-{
-  std::cout << str;
-}
-
-
-/** @brief IP in container view.
- *  @tparam T - container type (vector/list).
- *  @param container[in] - ip-address value represented as a container. */
-template<typename T>
-typename std::enable_if<
-  std::is_same<std::vector<typename T::value_type>, T>::value ||
-  std::is_same<std::list<typename T::value_type>, T>::value, void>::type
-output_ip(T &&container)
-{
-  for (auto it = container.begin(); it != container.end(); ++it) {
-    if (it != container.begin())
-      std::cout << '.';
-
-    output_ip(std::move(*it));
+  else if constexpr (is_tuple<T>::value) { /* ... for tuple ... */
+    print_tuple(value);
   }
-}
-
-/** @brief Print argument as ip address.
- *  @tparam T - integral type or container or string types.
- *  @param value[in] - value that will be printed as ip-address. */
-template<typename T>
-void print_ip(T &&value)
-{
-  output_ip(std::forward<T>(value));
+  else if constexpr (std::is_same<std::vector<typename T::value_type>, T>::value ||
+                     std::is_same<std::list<typename T::value_type>, T>::value) { /* ... vector and list ... */
+    std::for_each(std::begin(value), std::end(value), [&value](typename T::value_type &i) {
+      std::cout << (((*std::begin(value)) == i) ? ""s : "."s);
+      output_ip(std::move(i));
+    });
+  }
+  else { /* ... other ... (std::string) */
+    std::cout << value;
+  }
 }
 
 
