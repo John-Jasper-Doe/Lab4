@@ -2,7 +2,7 @@ dist: xenial
 
 language: cpp
 - os: linux
-
+ 
 before_script:
 - sudo apt update7
 - sudo apt install clang-7
