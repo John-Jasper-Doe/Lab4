@@ -1,10 +1,10 @@
 dist: xenial
+compiler: clang
 
 language: cpp
  
 before_script:
 - sudo apt update
-- sudo apt install clang-7
 - sudo apt install libboost-test-dev -y
 - sudo apt install doxygen -y
 - sudo apt install graphviz -y
