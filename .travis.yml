@@ -1,7 +1,6 @@
 dist: xenial
 
 language: cpp
-- os: linux
  
 before_script:
 - sudo apt update
