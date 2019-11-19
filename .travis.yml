@@ -4,8 +4,8 @@ language: cpp
 
 before_script:
 - sudo apt update
-- sudo apt install gcc-8
-- sudo apt install g++-8
+- sudo apt install gcc-7
+- sudo apt install g++-7
 - sudo apt install libboost-test-dev -y
 - sudo apt install doxygen -y
 - sudo apt install graphviz -y
