@@ -88,7 +88,7 @@ void print_tuple(const std::tuple<T...>& value) {
  */
 template<typename T>
 auto output_ip(T &&value) {
-  if constexpr (std::is_integral_v<T>) { /* such as the char, short, int and etc ... */
+  if constexpr (std::is_integral<T>::value) { /* such as the char, short, int and etc ... */
     using unsigned_t = typename std::make_unsigned<T>::type;
     const size_t num_bytes = sizeof(T);
 
