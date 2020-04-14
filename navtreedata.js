@@ -1,7 +1,7 @@
 var NAVTREE =
 [
   [ "print_ip", "index.html", [
-    [ "Lab 5", "index.html", null ],
+    [ "Lab 4", "index.html", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
